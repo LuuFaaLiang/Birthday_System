@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ BACKGROUND LAYERS (particles, drawn by JS) ============ -->
+  <canvas id="fx-canvas"></canvas>
+  <div id="balloon-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="heart-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="star-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="butterfly-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="flower-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="bubble-layer" class="fx-layer" aria-hidden="true"></div>
+  <div id="cursor-trail" aria-hidden="true"></div>
+
+  <!-- ============ TOP CONTROLS ============ -->
+  <div class="top-controls">
+    <button id="theme-toggle" class="icon-btn" title="Toggle light / dark celebration mode" aria-label="Toggle theme">🌙</button>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero" id="hero">
+    <p class="eyebrow-emoji">🎉 🎈 🎂 🎈 🎉</p>
+    <h1 class="hero-title">Happy Birthday</h1>
+    <h2 class="hero-name" id="recipient-name-hero">Sopriya</h2>
+    <p class="hero-subtitle" id="hero-subtitle"></p>
+
+    <div id="countdown-wrap" class="countdown-wrap">
+      <p class="countdown-label" id="countdown-label">Counting down to the big day</p>
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit"><span id="cd-days">00</span><small>days</small></div>
+        <div class="countdown-unit"><span id="cd-hours">00</span><small>hours</small></div>
+        <div class="countdown-unit"><span id="cd-mins">00</span><small>mins</small></div>
+        <div class="countdown-unit"><span id="cd-secs">00</span><small>secs</small></div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <button class="btn btn-primary ripple" id="btn-celebrate">Celebrate 🎊</button>
+      <button class="btn btn-ghost ripple" id="btn-fireworks">Launch Fireworks 🎆</button>
+    </div>
+
+    <a href="#cake-section" class="scroll-hint">Scroll down for the surprise ↓</a>
+  </header>
+
+  <!-- ============ CAKE SECTION ============ -->
+  <section class="section" id="cake-section">
+    <h3 class="section-title">Make a wish</h3>
+    <div class="glass-card cake-card">
+      <div class="cake-scene" id="cake-scene">
+        <div class="cake">
+          <div class="cake-plate"></div>
+          <div class="cake-layer cake-bottom"></div>
+          <div class="cake-layer cake-middle"></div>
+          <div class="cake-layer cake-top"></div>
+          <div class="cake-drip"></div>
+          <div class="candles" id="candles">
+            <!-- candles injected by JS -->
+          </div>
+        </div>
+        <div class="smoke-wrap" id="smoke-wrap"></div>
+      </div>
+      <button class="btn btn-primary ripple" id="btn-blow">Blow the Candles 🕯️</button>
+      <p class="cake-caption" id="cake-caption">Click the button — no lung power required.</p>
+    </div>
+  </section>
+
+  <!-- ============ GIFT SECTION ============ -->
+  <section class="section" id="gift-section">
+    <h3 class="section-title">A little something for you</h3>
+    <div class="glass-card gift-card">
+      <div class="gift-scene" id="gift-scene">
+        <div class="gift-box" id="gift-box">
+          <div class="gift-lid"></div>
+          <div class="gift-base"></div>
+          <div class="gift-ribbon-v"></div>
+          <div class="gift-ribbon-h"></div>
+          <div class="gift-bow"></div>
+        </div>
+        <div class="gift-surprise" id="gift-surprise">
+          <p class="gift-message">You make every room brighter just by being in it. Here's to another year of you. 💛</p>
+          <div class="gift-hearts" id="gift-hearts"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary ripple" id="btn-gift">Open Your Gift 🎁</button>
+    </div>
+  </section>
+
+  <!-- ============ LETTER SECTION ============ -->
+  <section class="section" id="letter-section">
+    <h3 class="section-title">A letter, just for you</h3>
+    <div class="glass-card letter-card">
+      <div class="envelope-scene" id="envelope-scene">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="letter-paper" id="letter-paper">
+            <p id="letter-text" class="letter-text"></p>
+            <p class="letter-sign">With love,<br><span id="sender-name">Lianghok</span></p>
+          </div>
+          <div class="envelope-flap"></div>
+        </div>
+      </div>
+      <button class="btn btn-primary ripple" id="btn-letter">Read My Letter 💌</button>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY SECTION ============ -->
+  <section class="section" id="gallery-section">
+    <h3 class="section-title">Memories worth celebrating</h3>
+    <div class="gallery" id="gallery">
+      <!-- 6 polaroid placeholders injected by JS, or replace with <img> tags manually -->
+    </div>
+  </section>
+
+  <!-- ============ WISHES CAROUSEL ============ -->
+  <section class="section wishes-section" id="wishes-section">
+    <h3 class="section-title">Wishes for you</h3>
+    <div class="wishes-carousel glass-card" id="wishes-carousel">
+      <button class="carousel-arrow left" id="wish-prev" aria-label="Previous wish">‹</button>
+      <p class="wish-text" id="wish-text"></p>
+      <button class="carousel-arrow right" id="wish-next" aria-label="Next wish">›</button>
+      <div class="wish-dots" id="wish-dots"></div>
+    </div>
+    <button class="btn btn-ghost ripple" id="btn-quote">✨ Give Me Another Wish</button>
+  </section>
+
+  <!-- ============ ACTION / SHARE / DOWNLOAD ============ -->
+  <section class="section" id="actions-section">
+    <div class="glass-card actions-card" id="card-to-capture">
+      <p class="capture-emoji">🎂🎉💛</p>
+      <h4 id="capture-heading">Happy Birthday, Sopriya!</h4>
+      <p id="capture-sub">Wishing you happiness, health, success, and lots of love today and always.</p>
+    </div>
+    <div class="cta-row">
+      <button class="btn btn-primary ripple" id="btn-download">⬇ Download Card as Image</button>
+      <button class="btn btn-ghost ripple" id="btn-share">🔗 Copy Birthday Message</button>
+    </div>
+    <p class="share-feedback" id="share-feedback" aria-live="polite"></p>
+  </section>
+
+  <!-- ============ MUSIC PLAYER (fixed) ============ -->
+  <div class="music-player" id="music-player">
+    <button id="music-toggle" class="music-icon-btn" title="Play birthday music" aria-label="Play or pause music">
+      <span id="music-icon">🎵</span>
+    </button>
+    <input type="range" id="music-volume" min="0" max="1" step="0.01" value="0.6" aria-label="Volume">
+    <audio id="birthday-audio" src="assets/music/birthday.mp3" loop preload="none"></audio>
+  </div>
+
+  <footer class="footer">
+   <!-- <p>Made with 💛 — customize this page in <code>script.js</code> (open <code>CONFIG</code> at the top).</p> -->
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
