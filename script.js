@@ -7,7 +7,7 @@ const CONFIG = {
   recipientName: "Sopriya",          // <-- change the birthday person's name
   senderName: "Lianghok",                // <-- who the letter/card is from
   birthdayMonth: 11,                // 1-12. Used for the countdown (next occurrence of this date)
-  birthdayDay: 25,                 // day of month
+  birthdayDay: 23,                 // day of month
   subtitle: "Wishing you happiness, health, success, and lots of love today and always.",
   letter: `Happy birthday! I don't say this often enough, but I'm so grateful to have you in my life.
 
