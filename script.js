@@ -26,7 +26,7 @@ Here's to you — today and always.`,
   ],
   galleryCaptions: ["🌸", "🎈", "💋", "📸", "🥳", "💫"],
   // Replace these with real photo URLs (or local paths in assets/images/s) if you have them.
-  galleryImages: ["assets/images/Pic11.jpg", "assets/images/Pic12.jpg", "assets/images/Pic6.jpg", "assets/images/Pic4.jpg", "assets/images/Pic15.jpg", "assets/images/Pic16.jpg"],
+  galleryImages: ["assets/images/Pic11.JPG", "assets/images/Pic12.JPG", "assets/images/Pic6.JPG", "assets/images/Pic4.JPG", "assets/images/Pic15.JPG", "assets/images/Pic16.JPG"],
   musicSrc: "assets/music/birthday.mp3" // drop your own mp3 in assets/music/ with this name, or change the path
 };
 
